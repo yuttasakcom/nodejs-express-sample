@@ -1,11 +1,14 @@
-const express = require("express");
+const express = require('express')
+const morgan = require('morgan')
 
-const app = express();
+const app = express()
 
-app.set("host", process.env.HOST || "localhost");
-app.set("port", process.env.PORT || 3000);
+app.set('host', process.env.HOST || 'localhost')
+app.set('port', process.env.PORT || 3000)
 
-const routes = require("./routes");
-routes(app);
+app.use(morgan('tiny'))
 
-module.exports = app;
+const routes = require('./routes')
+routes(app)
+
+module.exports = app
