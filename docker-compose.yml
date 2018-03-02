@@ -2,6 +2,14 @@ version: '3'
 
 services:
 
+  proxy_nodejs:
+    build: ./nginx
+    image: yuttasakcom/node-proxy:1.0.0
+    container_name: proxy_nodejs
+    ports:
+      - "3001:80"
+    restart: always
+
   nodejs:
     build: .
     image: yuttasakcom/nodejs-express:1.0.0
@@ -9,5 +17,5 @@ services:
     environment:
       - HOST=nodejs
     ports:
-      - "3000:3000"
+      - "8301:3000"
     restart: always
