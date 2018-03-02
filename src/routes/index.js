@@ -1,7 +1,7 @@
+const apis = require('./apis')
+
 const router = app => {
-  app.get('/', (req, res) => {
-    res.end('Hello')
-  })
+  app.use('/apis', apis)
 }
 
 module.exports = router
